@@ -22,7 +22,8 @@ class boid():
 class behavior():
     @staticmethod
     def followPoint(boid : boid,strength : float,info : dict, *keys):
-        point = info[keys[0]]
+                                                                    # key[n] refers to:
+        point = info[keys[0]]                                       # (x coord, y coord)
         pos = boid.p
         rel = [point[i]-pos[i] for i in [0,1]]
         angle = math.atan2(rel[1], rel[0])
@@ -38,6 +39,7 @@ class behavior():
     
     @staticmethod
     def avoidPoint(boid : boid, strength : float, info : dict, *keys):
+                                                                    # key[n] refers to:
         point = info[keys[0]]                                       # (x coord, y coord)
         t_distance = info[keys[1]]                                  # float
         turn_dir = {'left': 1, 'right': -1}[info[keys[2]].lower()]  # either 'left' or 'right'
